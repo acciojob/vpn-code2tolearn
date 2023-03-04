@@ -1,27 +1,26 @@
 package com.driver.model;
 
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "country")
-// Note: Do not write @Enumerated annotation above CountryName in this model.
+@Table(name = "countries")
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int id ;
-     @Enumerated(EnumType.STRING)
-    private  CountryName countryName ;
+    private int id;
+    @Enumerated(EnumType.STRING)
+    private CountryName countryName;
 
-     private  String code ;
+    private String code;
 
-     @ManyToOne
-     @JoinColumn
-     private ServiceProvider serviceProvider ;
 
-     @OneToOne
+    @ManyToOne
     @JoinColumn
-    User user ;
+    private ServiceProvider serviceProvider;
+
+
+    @OneToOne
+    private User user;
 
     public Country() {
     }
